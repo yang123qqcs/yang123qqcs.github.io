@@ -1,0 +1,572 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no"/>
+<title>西咸新区沣西新城</title>
+<script src="js/jquery.js"></script>
+<script src="wap_script/mui.min.js"></script>
+<script src="wap_script/resize.js"></script>
+<script src="wap_script/index_img_control.js"></script>
+<link href="css/mui.min.css" rel="stylesheet"/>
+<link rel="stylesheet" href="styles/wrap/common.skin/common.css">
+<link rel="stylesheet" href="styles/wrap/index.skin/index.css">
+<script type="text/javascript" charset="utf-8">
+    /*mui 初始化*/
+    mui.init();
+</script>
+<script type="text/javascript">
+    //国务院要闻
+    $(document).ready(function(){
+        $.ajax({
+            url : 'http://www.gov.cn/pushinfo/v150203/pushinfo.jsonp',
+            dataType : "jsonp",
+            jsonp : "pushInfoJsonpCallBack",
+            jsonpCallback:"pushInfoJsonpCallBack",
+            success : function(data) {
+                $.each(data,function(i,json){
+                    var str1= json.pubDate;
+                    str1=str1.substr(0,10);
+                    var str2 = json.title;
+                    if(i<3){
+                        $("#gwyxx ul").append("<li class='mui-table-view-cell'><div class='xw_pic'><a href='javascript:void(0)'><img src=''></a></div><div class='m-info'><div class='m-info-inner'><a href='"+json.link+"' target='_blank' title='"+ json.title + "' >"+str2+"</a><p><span>"+str1+"</span></p></div></div></li>");
+                    }
+                    (function hideImg(){
+	            		var xImg = $('.m-xw ul li img');
+		                for(var i = 0;i < xImg.length;i++){
+		                    var xPic = $(xImg[i]).parents('.xw_pic');
+		                    var mInfo = xPic.next();
+		                    if($(xImg[i]).attr("src")==""){
+		                        xPic.css('display','none');
+		                        mInfo.css({'width':'100%','padding-top':'0'});
+		                        mInfo.children('p').css('margin-bottom','0');
+		                    }
+		                } 
+	            	})();
+                })
+            },
+            error:function(){
+                // alert('fail');
+            }
+        });
+    });
+</script>
+</head>
+<body>
+	<!-- 头部区域 -->
+	<header class="g-top">
+		<div class="m-top">
+			<img src="images/wrap/index.files/logo.png">
+			<span><img src="images/wrap/index.files/sousuo.png"></span>
+		</div>
+	</header>
+	<!-- nav部分 -->
+	<nav>
+		<a href="#">
+			<img src="images/wrap/index.files/2shouye.png">
+			<span>首页</span>
+		</a>
+		<a href="#">
+			<img src="images/wrap/index.files/yiweijingyaowen.png">
+			<span>新闻</span>
+		</a>
+		<a href="#">
+			<img src="images/wrap/index.files/233.png">
+			<span>公开</span>
+		</a>
+		<a href="#">
+			<img src="images/wrap/index.files/agency.png">
+			<span>互动</span>
+		</a>
+		<a href="#">
+			<img src="images/wrap/index.files/0fuwu.png">
+			<span>服务</span>
+		</a>
+		<a href="#">
+			<img src="images/wrap/index.files/zuzhi.png">
+			<span>廉政</span>
+		</a>
+		<a href="#">
+			<img src="images/wrap/index.files/fuwu1.png">
+			<span>招商</span>
+		</a>
+		<a href="#">
+			<img src="images/wrap/index.files/lvyouguanli1.png">
+			<span>走进</span>
+		</a>
+	</nav>
+	<script>
+		$(function () {
+		    imgSize()
+		});
+		function imgSize() {
+		    var wImg =$("nav a img");
+		    // console.log(wImg);
+		    for(var i = 0;i < wImg.length;i++){
+		    	var boxWidth = $(wImg[i]).width();
+		    	// console.log(boxWidth);
+		    	var boxHeight = $(wImg[i]).height();
+		    	var newWidth = boxWidth / 2;
+			    var newHeight = boxHeight / 2;
+			    $(wImg[i]).css({"width": newWidth, "height": newHeight});
+		    }
+		};
+	</script>
+    <!-- 焦点图 -->
+	<div class="mui-content">
+		<div class="m-pic">
+			<div class="mui-slider">
+				 <div class="mui-slider-group mui-slider-loop">
+                    <!--&lt;!&ndash; 额外增加的一个节点(循环轮播：第一个节点是最后一张轮播) &ndash;&gt;-->
+                    <div class="mui-slider-item mark">
+                        <a>
+                            <img src="http://www.yanan.gov.cn/wcm.files/upload/CMSyanan/201910//20191016141143476001.jpg">
+                            <p class="mui-slider-title"><span>中央音乐学院·延安“10·15”艺术节...</span></p>
+                        </a>
+                    </div>
+                    <div class="mui-slider-item mark">
+                        <a href="#">
+                            <img src="http://www.yanan.gov.cn/wcm.files/upload/CMSyanan/201910//20191022145026372001.jpg">
+                            <p class="mui-slider-title"><span>走入莫高与月牙的凄美爱情故事凄美爱情故事</span></p>
+                        </a>
+                    </div>
+                    <div class="mui-slider-item mark">
+                        <a>
+                            <img src="http://www.yanan.gov.cn/wcm.files/upload/CMSyanan/201910//20191021142837747001.jpg">
+                            <p class="mui-slider-title"><span>展现草原风情  突出红色主题 情景歌...</span></p>
+                        </a>
+                    </div>
+                    <div class="mui-slider-item mark">
+                        <a>
+                            <img src="http://www.yanan.gov.cn/wcm.files/upload/CMSyanan/201910//20191021083329206001.jpg">
+                            <p class="mui-slider-title"><span>让中学生近距离感受民族乐独特魅力 ...</span></p>
+                        </a>
+                    </div>
+                    <div class="mui-slider-item mark">
+                        <a>
+                            <img src="http://www.yanan.gov.cn/wcm.files/upload/CMSyanan/201910//20191016141225842001.jpg">
+                            <p class="mui-slider-title"><span>2019延安文化传承博览会开幕</span></p>
+                        </a>
+                    </div>
+                    <div class="mui-slider-item mark">
+                        <a>
+                            <img src="http://www.yanan.gov.cn/wcm.files/upload/CMSyanan/201910//20191016141143476001.jpg">
+                            <p class="mui-slider-title"><span>中央音乐学院·延安“10·15”艺术节...</span></p>
+                        </a>
+                    </div>
+                    <div class="mui-slider-item mark">
+                        <a>
+                            <img src="http://www.yanan.gov.cn/wcm.files/upload/CMSyanan/201910//20191022145026372001.jpg">
+                            <p class="mui-slider-title"><span>走入莫高与月牙的凄美爱情故事 《大...</span></p>
+                        </a>
+                    </div>
+                    <!--&lt;!&ndash; 额外增加的一个节点(循环轮播：最后一个节点是第一张轮播) &ndash;&gt;-->
+                </div>
+
+
+
+				 <div class="mui-slider-indicator mui-text-right focus">
+                    <div class="mui-indicator mui-active"></div>
+                    <div class="mui-indicator"></div>
+                    <div class="mui-indicator"></div>
+                    <div class="mui-indicator"></div>
+                    <div class="mui-indicator"></div>
+                </div>
+			</div>
+			<script>
+				var gallery = mui('.mui-slider');
+				gallery.slider({
+				  interval:0//自动轮播周期，若为0则不自动播放，默认为0；
+				});
+			</script>
+		</div>
+	</div>
+        <!-- 新闻中心 -->
+	    <div class="mui-content g-news">
+	        <!--top scroll pic begin-->
+	        <div class="m-pic m-xxka">
+	            <div class="mui-slider">
+	                <!-- id=slider-->
+	                <div class="mui-slider-indicator title mui-text-center line more">
+	                    <div class="mui-indicator mui-active"><a href="/info/iList.jsp?tm_id=189&amp;cat_id=10110">国务院要闻</a>
+	                    <div class="line"></div></div>
+	                    <div class="mui-indicator"><a href="/info/iList.jsp?tm_id=189&amp;cat_id=11829">沣西要闻</a><div class="line"></div></div>
+	                    <div class="mui-indicator"><a href="/info/iList.jsp?tm_id=189&amp;cat_id=10112">工作动态</a><div class="line"></div></div>
+	                    <div class="mui-indicator"><a href="/info/iList.jsp?tm_id=189&amp;cat_id=10113">通知公告</a><div class="line"></div></div>
+	                </div>
+	                <div class="mui-slider-group mgtop50">
+                        <!-- 国务院要闻 -->
+	                	<div class="mui-slider-item m-xw" id="gwyxx">
+                        	<ul class="mui-table-view">
+                        		
+                        	</ul>
+                    	</div>
+                    	<div class="mui-slider-item m-xw">
+                        	<ul class="mui-table-view">
+                                <li class="mui-table-view-cell">
+                                    <div class="xw_pic">
+                                        <a href="22">
+                                            <img src="images/wrap/index.files/img1.png">
+                                        </a>
+                                    </div>
+                                    <div class="m-info">
+                                        <div class="m-info-inner">
+                                            <a href="ww">
+                                                第二届中西部“双城·双创”城市论坛城市论坛
+                                            </a>
+                                            <p>
+                                                <span>2019-02-11</span>
+                                                <span>来源：创新港管理服务办公室</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <div class="xw_pic">
+                                        <a href="22">
+                                            <img src="images/wrap/index.files/img1.png">
+                                        </a>
+                                    </div>
+                                    <div class="m-info">
+                                        <div class="m-info-inner">
+                                            <a href="ww">
+                                                第二届中西部“双城·双创”城市论坛城市论坛
+                                            </a>
+                                            <p>
+                                                <span>2019-02-11</span>
+                                                <span>来源：创新港管理服务办公室</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <div class="xw_pic">
+                                        <a href="22">
+                                            <img src="">
+                                        </a>
+                                    </div>
+                                    <div class="m-info">
+                                        <div class="m-info-inner">
+                                            <a href="ww">
+                                                陕西首家！沣东新城打造全新政府采购沣东新城打造全新政府采购新政府采购
+                                            </a>
+                                            <p>
+                                                <span>2019-02-11</span>
+                                                <span>来源：创新港管理服务办公室</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                </li>
+                                
+                            </ul>
+                    	</div>
+                    	<div class="mui-slider-item m-xw">
+                        	列表3
+                    	</div>
+                    	<div class="mui-slider-item m-xw">
+                        	列表4
+                    	</div>
+	                </div>
+
+	             </div>
+	        </div>
+    	</div>
+        <!-- 查看更多 -->
+		<div class="mui-content g-ck">
+            <a class="ck-more">查看更多</a>    
+        </div>
+        <!-- 政务公开 -->
+        <div class="mui-content g-zwgk">
+            <a href="#" class="m-tnm-sj">
+                <div class="m-title-sj">
+                    <div class="u-tle-sj">政务公开</div>
+                    <img src="images/wrap/index.files/next.png">
+                </div>
+                <div class="d_line"></div>
+            </a>
+            <div class="mui-row">
+               
+                <div class="mui-col-sm-3 mui-col-xs-3">
+                    <a href="#">
+                        <span><img src="images/wrap/index.files/ldzc.png"></span>
+                        <div class="mui-media-body">领导之窗</div>
+                    </a>
+                </div>
+                <div class="mui-col-sm-3 mui-col-xs-3">
+                    <a href="#">
+                        <span><img src="images/wrap/index.files/gfxwj.png"></span>
+                        <div class="mui-media-body">规范性文件</div>
+                    </a>
+                </div>
+                 <div class="mui-col-sm-3 mui-col-xs-3">
+                    <a href="#">
+                        <span><img src="images/wrap/index.files/rsxx.png"></span>
+                        <div class="mui-media-body">人事信息</div>
+                    </a>
+                </div>
+                 <div class="mui-col-sm-3 mui-col-xs-3">
+                    <a href="#">
+                        <span><img src="images/wrap/index.files/zfcg.png"></span>
+                        <div class="mui-media-body">政府采购</div>
+                    </a>
+                 </div>
+                 <div class="mui-col-sm-3 mui-col-xs-3">
+                    <a href="#">
+                        <span><img src="images/wrap/index.files/zcjd.png"></span>
+                        <div class="mui-media-body">政策解读</div>
+                    </a>
+                 </div>
+                 <div class="mui-col-sm-3 mui-col-xs-3">
+                    <a href="#">
+                        <span><img src="images/wrap/index.files/tjsj.png"></span>
+                        <div class="mui-media-body">统计数据</div>
+                    </a>
+                 </div>
+                 <div class="mui-col-sm-3 mui-col-xs-3">
+                    <a href="#">
+                        <span><img src="images/wrap/index.files/yjsgk.png"></span>
+                        <div class="mui-media-body">预决算公开</div>
+                    </a>
+                 </div>
+                 <div class="mui-col-sm-3 mui-col-xs-3">
+                    <a href="#">
+                        <span><img src="images/wrap/index.files/zfcg.png"></span>
+                        <div class="mui-media-body">财政信息</div>
+                    </a>
+                 </div>
+               
+
+
+            </div>
+        </div>
+        <!-- 互动交流 -->
+        <div class="mui-content g-hdjl">
+            <a href="#" class="m-tnm-sj">
+                <div class="m-title-sj">
+                    <div class="u-tle-sj">互动交流</div>
+                    <img src="images/wrap/index.files/next.png">
+                </div>
+                <div class="d_line"></div>
+            </a>
+            <!--top scroll pic begin-->
+            <div class="m-hd">
+                <div class="mui-slider">
+                    <!-- id=slider-->
+                    <div class="mui-slider-indicator hd-title mui-text-center hd-more">
+                        <div class="mui-indicator mui-active" id="dczj"><a href="/info/iList.jsp?tm_id=189&amp;cat_id=10110">调查征集</a></div>
+                        <div class="mui-indicator" id="hygq"><a href="/info/iList.jsp?tm_id=189&amp;cat_id=11829">回应关切</a></div>
+                    </div>
+                    <div class="mui-slider-group mgtop66">
+                        <div class="mui-slider-item">
+                           <ul class="mui-table-view">
+                                <li class="mui-table-view-cell">
+                                    <div class="m-hd-date">
+                                        <p class="u-month-day">02-11</p>
+                                        <p>2019</p>
+                                    </div>
+                                    <div class="m-hd-info">
+                                        <a href="ww" class="mui-ellipsis-2">
+                                            西安市审计局关于审计全覆盖的调查问卷
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <div class="m-hd-date">
+                                        <p class="u-month-day">02-11</p>
+                                        <p>2019</p>
+                                    </div>
+                                    <div class="m-hd-info">
+                                        <a href="ww" class="mui-ellipsis-2">
+                                            西安市审计局关于2018年度政务信息公开满意度的调查问卷超出部分隐藏超出部分隐藏超出部分隐藏超出部分隐藏
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="mui-table-view-cell">
+                                    <div class="m-hd-date">
+                                        <p class="u-month-day">02-11</p>
+                                        <p>2019</p>
+                                    </div>
+                                    <div class="m-hd-info">
+                                        <a href="ww" class="mui-ellipsis-2">
+                                            西安市审计局关于2018年度政务信息公开满意度的调查问卷
+                                        </a>
+                                    </div>
+                                </li>
+                                
+
+                            </ul>
+                        </div>
+                        <div class="mui-slider-item">
+                            列表2
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 查看更多 -->
+        <div class="mui-content g-ck">
+            <a class="ck-hd-more">查看更多</a>    
+        </div>
+        <script>
+            $(function(){
+            	(function hideImg(){
+            		var xImg = $('.m-xw ul li img');
+	                for(var i = 0;i < xImg.length;i++){
+	                    var xPic = $(xImg[i]).parents('.xw_pic');
+	                    var mInfo = xPic.next();
+	                    if($(xImg[i]).attr("src")==""){
+	                        xPic.css('display','none');
+	                        mInfo.css({'width':'100%','padding-top':'0'});
+	                        mInfo.children('p').css('margin-bottom','0');
+	                    }
+	                } 
+            	})();
+                function moreInfo(){
+                    var infoArr = $('.more .mui-indicator');
+                    for(var i = 0;i < infoArr.length;i++){
+                        // console.log(infoArr[i]);
+                        // var infoHref = $(infoArr[0]).attr('class');
+                        // console.log(infoHref);
+                        if($(infoArr[i]).attr('class') == 'mui-indicator mui-active'){
+                            return i;
+                        }
+                    }
+                }
+                function hrefFn(){
+                    switch (moreInfo()){
+                        case 0: 
+                            href = '#1';
+                            break;
+                        case 1: 
+                            href = '#2';
+                            break;
+                        case 2: 
+                            href = '#3';
+                            break;
+                        case 3: 
+                            href = '#4';
+                            break;
+                    }
+                    $('.ck-more').attr('href',href);
+                }
+
+                
+                $(".ck-more").click(function(){
+                  hrefFn();
+                });
+
+
+                var dW = $('.m-hd-date').innerWidth();
+                var dH = dW - 10;
+                $('.m-hd-date').height(dH);
+
+                function moreInfoHd(){
+                    var infoArr = $('.hd-more .mui-indicator');
+                    for(var i = 0;i < infoArr.length;i++){
+                        if($(infoArr[i]).attr('class') == 'mui-indicator mui-active'){
+                            return i;
+                        }
+                    }
+                }
+                function hrefFnHd(){
+                    switch (moreInfoHd()){
+                        case 0: 
+                            href = '#5';
+                            break;
+                        case 1: 
+                            href = '#6';
+                            break;
+                    }
+                    $('.ck-hd-more').attr('href',href);
+                }
+                
+                
+                $(".ck-hd-more").click(function(){
+                  hrefFnHd();
+                });
+            })
+        </script>
+        <!-- 互动方式 -->
+        <div class="mui-content ys">
+            <div class="g-bd hdfs">
+                <a href="#" class="ldxx">
+                    <img src="images/wrap/index.files/ldxx.png">
+                    <span>领导信箱</span>
+                </a>
+                <a href="#" class="zxft">
+                    <img src="images/wrap/index.files/zxft.png">
+                    <span>在线访谈</span>
+                </a>
+                <a href="#" class="wsxf">
+                    <img src="images/wrap/index.files/wsxf.png">
+                    <span>网上信访</span>
+                </a>
+            </div>
+        </div>
+        <!-- 招商引资 -->
+        <div class="mui-content g-zsyz">
+            <a href="#" class="m-tnm-sj">
+                <div class="m-title-sj">
+                    <div class="u-tle-sj">招商引资</div>
+                    <img src="images/wrap/index.files/next.png">
+                </div>
+                <div class="d_line"></div>
+            </a>
+            <div class="img-box">
+                <div class="imgs-item">
+                    <a href="#">
+                        <img src="images/wrap/index.files/tzzc.png">
+                    </a>
+                    <div class="m-shade">
+                        <a href="#">
+                            <p>投资政策</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="imgs-item">
+                    <a href="#">
+                        <img src="images/wrap/index.files/tzhj.png">
+                    </a>
+                    <div class="m-shade">
+                        <a href="#">
+                            <p>投资环境</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="imgs-item">
+                    <a href="#">
+                        <img src="images/wrap/index.files/tzxm.png">
+                    </a>
+                    <div class="m-shade">
+                        <a href="#">
+                            <p>投资项目</p>
+                        </a>
+                    </div>
+                </div>
+                <div class="imgs-item">
+                    <a href="#">
+                        <img src="images/wrap/index.files/tzfw.png">
+                    </a>
+                    <div class="m-shade">
+                        <a href="#">
+                            <p>投资服务</p>
+                        </a>
+                    </div>
+                </div>
+                       
+            </div>
+        </div>
+
+        <!-- 页脚 -->
+        <div class="g-ft">
+            <div class="m-ft">
+                <p>主办：陕西省西咸新区沣西新城管理委员会</p>
+                <p>地址：秦皇大道与尚业路交界东北50米总部经济园9号楼</p>
+                <p>电话：029-38020017&nbsp;&nbsp;传真：029-38020009&nbsp;&nbsp;<a href="#">网站地图</a></p>
+                <p>网站标识码：6190000003&nbsp;&nbsp;<a href="#">陕ICP备11011300号-1</a></p>
+                <p><a href="#">陕公网安备 61040202000397号</a></p>
+            </div>
+        </div>
+
+</body>
+</html>
